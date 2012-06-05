@@ -31,6 +31,10 @@ jimport('joomla.environment.uri');
 
 ?>
 
+<a href="http://docs.joomla.org/JURI">http://docs.joomla.org/JURI</a>
+
+<br/><br/>
+
 <a href="index.php">Back</a>
 
 </html>
