@@ -26,25 +26,21 @@ else
 }
 
 /* Browser play */
-jimport('joomla.environment.browser');
-$browser = &JBrowser::getInstance();
-$browserInfo = $browser->getBrowser();
-$browserVersion = $browser->getVersion();
+jimport('joomla.application.web');
+$browser = new JApplicationWebClient();
 
-echo '<label>[user-agent]:</label>' . $browser->getAgentString() . '<br/>';
-echo '<label>[version]: </label>' . $browser->getVersion() . '<br/>';
-echo '<label>[system and browser information]: </label>' . $browser->getBrowser() . '<br/>';
-echo '<label>[platform]:</label>' . $browser->getPlatform() . '<br/>';
-echo '<label>[platform details]:</label>' . '-' . '<br/>';
+echo '<label>[user-agent]:</label>' . $browser->__get('userAgent') . '<br/>';
+echo '<label>[version]: </label>' . $browser->__get('browserVersion') . '<br/>';
+echo '<label>[system and browser information]: </label>' . $browser->__get('browser') . '<br/>';
+echo '<label>[platform]:</label>' . $browser->__get('platform') . '<br/>';
+echo '<label>[platform details]:</label>' . $browser->__get('engine')  . '<br/>';
 echo '<label>[extensions]:</label>' . '-' . '<br/>';
-if ($browser->isRobot())
-	echo '<label>[are we robots?]: </label>' . 'yes' . '<br/>';
-else
-	echo '<label>[are we robots?]: </label>' . 'no' . '<br/>';
+echo '<label>[are we robots?]: </label>' . 'no more in JApplicationWebClient' . '<br/>';
 
 echo '<br/><br/>';
 
-$browser = new JBrowser('Mozilla/5.0 (compatible; Googlebot/2.1; +http://www.google.com/bot.html)');
+jimport('joomla.environment.browser');
+$browser = new JBrowser('Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/535.19 (KHTML, like Gecko) Chrome/18.0.1025.168 Safari/535.19');
 
 echo '<label>[user-agent]:</label>' . $browser->getAgentString() . '<br/>';
 echo '<label>[version]: </label>' . $browser->getVersion() . '<br/>';
